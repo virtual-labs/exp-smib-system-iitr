@@ -76,7 +76,7 @@ $$
 
 Hence multiplying both sides of (4) by $$ \Big (\frac{d\delta} {dt}\Big)$$ and rearranging we get
 
-$$\frac{H}{w_s} \frac{d dt} \Big  (\frac{d\delta}{dt}\Big)^2 = (P_{m}-P_{e}) \Big (\frac{d\delta}{dt}\Big)$$
+$$\frac{H}{w_s} \frac{d dt} \Big  (\frac{d\delta}{dt}\Big)^2 = (P_m-P_e) \Big (\frac{d\delta}{dt}\Big)$$
 
 Multiplying both sides of the above equation by $(dt)$ and then integrating between two arbitrary angles $(\delta_{o})$ and $(\delta_{c})$, we get
 
