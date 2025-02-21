@@ -74,11 +74,11 @@ $$
 \end{equation}
 $$
 
-Hence multiplying both sides of (4) by $\Big(\frac{{d}\delta}{{d} t}\Big)$ and rearranging we get
+Hence multiplying both sides of (4) by $$ \Big(\frac{d\delta} {dt}\Big) $$ and rearranging we get
 
 $$
 \begin{equation}
-\frac{H}{w_{s}} \frac{d}{dt} \Big(\frac{d\delta}{dt}\Big)^2 = (P_{m}-P_{e})\Big(\frac{d\delta}{dt}\Big)
+\frac{H}{w_s} \frac{d dt} \Big(\frac{d\delta}{dt}\Big)^2 = (P_{m}-P_{e})\Big(\frac{d\delta}{dt}\Big)
 \end{equation}
 $$
 
@@ -86,7 +86,7 @@ Multiplying both sides of the above equation by $(dt)$ and then integrating betw
 
 $$
 \begin{equation}
-\frac{H}{w_{s}} \Big(\frac{d\delta}{dt}\Big)^2 \Biggr|_{\delta_{o}} ^{\delta_{c}}  = \int_{\delta_{o}}^{\delta_{c}}(P_{m}-P_{e})d \delta
+\frac{H}{w_s} \Big(\frac{d\delta}{dt}\Big)^2 \Biggr|_{\delta_{o}} ^{\delta_{c}}  = \int_{\delta_o}^{\delta_c}(P_{m}-P_e)d \delta
 \end{equation}
 $$
 
@@ -94,7 +94,7 @@ Now suppose the generator is at rest at $(\delta_{o})$. We then have $\frac{d\de
 
 $$
 \begin{equation}
-A1 = \int_{\delta_{o}}^{\delta_{c}}(P_{m}-P_{e})d \delta =0
+A1 = \int_{\delta_o}^{\delta_c}(P_m-P_e)d \delta =0
 \end{equation}
 $$
 
