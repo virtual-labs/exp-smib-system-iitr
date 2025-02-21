@@ -70,7 +70,7 @@ Consider the power angle curve shown in Fig. 4. Suppose the system of Fig. 2 is 
 Note that:
 $$
 \begin{equation}
-\frac{d}{dt} \Big(\frac{{d}\delta}{{d} t}\Big)^2 = 2 \frac{{d}\delta}{{d}t}  \Big(\frac{d^2\delta}{dt^2} \Big) 
+\frac {d}{dt} \Big (\frac {d\delta} {dt}\Big) ^2 = 2 \frac {d\delta} {dt} \Big(\frac{d^2\delta}{dt^2} \Big) 
 \end{equation}
 $$
 
