@@ -1,55 +1,52 @@
-{
-	"version": 2.0,
-	"questions": [
-		{
-			"question": "In an SMIB system, the critical clearing time depends on which of the following factors?",
-			"answers": {
-				"a": " Generator inertia and critical rotor angle  ",
-				"b": " Transmission line impedance and load power  ",
-				"c": " Generator terminal voltage and excitation level  ",
-				"d": " Infinite bus voltage and frequency  "
-			},
-			"correctAnswer": "a"
+[ 
+	{
+		"question": "In an SMIB system, the critical clearing time depends on which of the following factors?",
+		"answers": {
+			"a": " Generator inertia and critical rotor angle  ",
+			"b": " Transmission line impedance and load power  ",
+			"c": " Generator terminal voltage and excitation level  ",
+			"d": " Infinite bus voltage and frequency  "
 		},
-		{
-			"question": "In the equal area criterion, the 'accelerating area' represents:",
-			"answers": {
-				"a": " The energy lost by the generator rotor  ",
-				"b": " The electrical power output of the generator  ",
-				"c": " The mechanical power input to the generator  ",
-				"d": " The energy gained by the generator rotor  "
-			},
-			"correctAnswer": "d"
+		"correctAnswer": "a"
+	},
+	{
+		"question": "In the equal area criterion, the 'accelerating area' represents:",
+		"answers": {
+			"a": " The energy lost by the generator rotor  ",
+			"b": " The electrical power output of the generator  ",
+			"c": " The mechanical power input to the generator  ",
+			"d": " The energy gained by the generator rotor  "
 		},
-		{
-			"question": "A three-phase fault occurs on a transmission line. What happens to the generator rotor angle after the fault?",
-			"answers": {
-				"a": "It decreases rapidly  ",
-				"b": "It remains constant  ",
-				"c": "It increases due to acceleration  ",
-				"d": "It oscillates continuously  "
-			},
-			"correctAnswer": "c"
+		"correctAnswer": "d"
+	},
+	{
+		"question": "A three-phase fault occurs on a transmission line. What happens to the generator rotor angle after the fault?",
+		"answers": {
+			"a": "It decreases rapidly  ",
+			"b": "It remains constant  ",
+			"c": "It increases due to acceleration  ",
+			"d": "It oscillates continuously  "
 		},
-		{
-			"question": "Which of the following factors improves transient stability in SMIB systems?",
-			"answers": {
-				"a": " Increasing fault duration  ",
-				"b": " Lowering the system voltage  ",
-				"c": " Using a slower-acting circuit breaker  ",
-				"d": " Reducing transmission line impedance  "
-			},
-			"correctAnswer": "d"
+		"correctAnswer": "c"
+	},
+	{
+		"question": "Which of the following factors improves transient stability in SMIB systems?",
+		"answers": {
+			"a": " Increasing fault duration  ",
+			"b": " Lowering the system voltage  ",
+			"c": " Using a slower-acting circuit breaker  ",
+			"d": " Reducing transmission line impedance  "
 		},
-		{
-			"question": "In an SMIB system, a fault is cleared by tripping a transmission line. What is the post-fault effect?",
-			"answers": {
-				"a": " The system returns immediately to pre-fault conditions  ",
-				"b": " The generator operates at a lower power transfer level  ",
-				"c": " The generator loses synchronism with the infinite bus  ",
-				"d": " The system voltage drops to zero  "
-			},
-			"correctAnswer": "b"
-		}
-	]
-}
+		"correctAnswer": "d"
+	},
+	{
+		"question": "In an SMIB system, a fault is cleared by tripping a transmission line. What is the post-fault effect?",
+		"answers": {
+			"a": " The system returns immediately to pre-fault conditions  ",
+			"b": " The generator operates at a lower power transfer level  ",
+			"c": " The generator loses synchronism with the infinite bus  ",
+			"d": " The system voltage drops to zero  "
+		},
+		"correctAnswer": "b"
+	}
+]
