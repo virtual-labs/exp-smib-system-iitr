@@ -1,13 +1,17 @@
 ## Contributors
 
-### Lab Proposers
-| Name                | Email                   | Institute    | Position         | Photo |
-|---------------|---------------------|-------------------------|--------------|------------------|
-| Dr. Deep Kiran      | deepkiran@ee.iitr.ac.in | IIT Roorkee  | Assistant Professor  | ![Dr. Deep Kiran](images\Deep.JPG) |
-| Dr. Abdul Saleem Mir | saleemmir@ee.iitr.ac.in | IIT Roorkee  | Assistant Professor  |![Dr. Abdul Saleem Mir](images\Saleem.png) | 
+### Lab Proposer
 
-### Research Scholars and Developers
-| Name               | Email                   | Institute    | Position               |  Photo | 
-|---------------|--------------------|-------------------------|--------------|------------------------|
-| Mr. Arpit Kumar        | akumar3@ee.iitr.ac.in   | IIT Roorkee  | Senior Research Fellow | ![Mr. Arpit Kumar](images\Arpit.jpeg)  |
-| Mr. Ankit Mishra       | mankit787@gmail.com     | IIT Roorkee  | Senior Research Fellow |  ![Mr. Ankit Mishra](images\Ankit.jpg) |
+| S. No. |      Name      |                      Email                      |  Institute  |  Position |
+| :----: | :------------: | :---------------------------------------------: | :---------: | :-------: |
+|    1   | Prof. RS Anand | [anandfee@gmail.com](mailto:anandfee@gmail.com) | IIT Roorkee | Professor |
+
+### Developed by Virtual Labs Team IITR with support from
+
+| S. No. | Name                 | Email                                                     | Institute   | Position            |
+| :----: | :------------: | :---------------------------------------------------------: | :-----------: | :-------------------: |
+| 1      | Dr. Deep Kiran       | [deepkiran@ee.iitr.ac.in](mailto:deepkiran@ee.iitr.ac.in) | IIT Roorkee | Assistant Professor |
+| 2      | Dr. Abdul Saleem Mir | [saleemmir@ee.iitr.ac.in](mailto:saleemmir@ee.iitr.ac.in) | IIT Roorkee | Assistant Professor | 
+ 
+
+ 
