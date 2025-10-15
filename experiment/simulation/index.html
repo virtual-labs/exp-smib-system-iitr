@@ -1,218 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transient Stability Analysis</title>
-    <style>
-        canvas {
-            width: 100%;
-            max-width: 800px;
-            height: 400px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transient Stability Analysis</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Transient Stability Calculator</h2>
-    
-    <img src="images/Withoutfault.png" alt="System Diagram (Pre-Fault)" style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
-    
-    <form id="stabilityForm">
-        <label for="E">Generator Voltage (E, pu):</label>
-        <input type="number" id="E" name="E" min="1" max="2" step="0.01" value="1.1626" required>
-        <br><br>
 
-        <label for="V">Bus Voltage (V, pu):</label>
-        <input type="number" id="V" name="V" min="0.1" max="2" step="0.01" value="0.9" required>
-        <br><br>
+<div class="container">
 
-        <label for="Pmec">Mechanical Power (Pm, pu):</label>
-        <input type="number" id="Pmec" name="Pmec" min="0.1" max="5" step="0.1" value="0.9" required>
-        <br><br>
-
-        <label for="Xt">Transformer Line Reactance (Xt, pu):</label>
-        <input type="number" id="Xt" name="Xt" min="0.1" max="5" step="0.1" value="0.45" required>
-        <br><br>
-
-        <label for="X1">Transmission Line 1 Reactance (X1, pu):</label>
-        <input type="number" id="X1" name="X1" min="0.1" max="5" step="0.1" value="0.5" required>
-        <br><br>
-
-        <label for="X2">Transmission Line 2 Reactance (X2, pu):</label>
-        <input type="number" id="X2" name="X2" min="0.1" max="5" step="0.1" value="0.93" required>
-        <br><br>
-
-        <label for="H">Inertia Constant (H):</label>
-        <input type="number" id="H" name="H" min="1" max="10" step="0.1" value="3.5" required>
-        <br><br>
-
-        <label for="f">System Frequency (Hz):</label>
-        <input type="number" id="f" name="f" min="50" max="65" step="1" value="60" required>
-        <br><br>
-
-        <label for="tStep">Time Step (s):</label>
-        <input type="number" id="tStep" name="tStep" step="0.01" value="0.0005" required>
-        <br><br>
-
-        <label for="faultTime">Fault Occurrence Time (s):</label>
-        <input type="number" id="faultTime" name="faultTime" step="0.01" value="1" required>
-        <br><br>
-
-        <label for="clearTime">Fault Clearing Time (s):</label>
-        <input type="number" id="clearTime" name="clearTime" step="0.01" value="0.085" required>
-        <br><br>
-    </form>
-
-    <button id="calcButton">Calculate</button>
-    <p id="resultText"></p>
-    
-
-    <div id="faultSection" style="display: none;">
-        <h3>Fault Condition</h3>
-        <img src="images/Withfault.png" alt="Fault Condition Diagram" style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
+  <div class="navbar">
+    <h1>Transient Stability Calculator</h1>
+    <div class="instructions">
+      <button id="openInstructions">Instructions</button>
     </div>
+  </div>
 
+  <!-- Instructions Modal -->
+  <div id="instructionsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal"></span>
+      <div>
+        1. Enter the Generator Voltage (E), Bus Voltage (V), Mechanical Power (Pm), Transformer and Transmission line reactances (Xt, X1, X2), Inertia constant (H), System frequency (f), Time step (tStep), Fault occurrence time, and Fault clearing time.
+        <br><br>
+        2. Click on <b>"Calculate"</b> to perform transient stability analysis. The pre-fault, during fault, and post-fault power, swing curve, and frequency response will be plotted.
+        <br><br>
+        3. Fault condition diagram will also be displayed after calculation.
+      </div>
+    </div>
+  </div>
 
-    <canvas id="powerCurve" style="display: block; margin: 20px auto;"></canvas>
-    <canvas id="swingCurve" style="display: block; margin: 20px auto;"></canvas>
-    <canvas id="fCurve" style="display: block; margin: 20px auto;"></canvas>
+  <img src="images/Withoutfault.png" alt="System Diagram (Pre-Fault)">
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <form id="stabilityForm" class="section">
+    <div class="input-row">
+      <label for="E">Generator Voltage (E, pu):</label>
+      <input type="number" id="E" name="E" min="1" max="2" step="0.01" value="1.1626" required>
+    </div>
+    <div class="input-row">
+      <label for="V">Bus Voltage (V, pu):</label>
+      <input type="number" id="V" name="V" min="0.1" max="2" step="0.01" value="0.9" required>
+    </div>
+    <div class="input-row">
+      <label for="Pmec">Mechanical Power (Pm, pu):</label>
+      <input type="number" id="Pmec" name="Pmec" min="0.1" max="5" step="0.1" value="0.9" required>
+    </div>
+    <div class="input-row">
+      <label for="Xt">Transformer Line Reactance (Xt, pu):</label>
+      <input type="number" id="Xt" name="Xt" min="0.1" max="5" step="0.1" value="0.45" required>
+    </div>
+    <div class="input-row">
+      <label for="X1">Transmission Line 1 Reactance (X1, pu):</label>
+      <input type="number" id="X1" name="X1" min="0.1" max="5" step="0.1" value="0.5" required>
+    </div>
+    <div class="input-row">
+      <label for="X2">Transmission Line 2 Reactance (X2, pu):</label>
+      <input type="number" id="X2" name="X2" min="0.1" max="5" step="0.1" value="0.93" required>
+    </div>
+    <div class="input-row">
+      <label for="H">Inertia Constant (H):</label>
+      <input type="number" id="H" name="H" min="1" max="10" step="0.1" value="3.5" required>
+    </div>
+    <div class="input-row">
+      <label for="f">System Frequency (Hz):</label>
+      <input type="number" id="f" name="f" min="50" max="65" step="1" value="60" required>
+    </div>
+    <div class="input-row">
+      <label for="tStep">Time Step (s):</label>
+      <input type="number" id="tStep" name="tStep" step="0.01" value="0.0005" required>
+    </div>
+    <div class="input-row">
+      <label for="faultTime">Fault Occurrence Time (s):</label>
+      <input type="number" id="faultTime" name="faultTime" step="0.01" value="1" required>
+    </div>
+    <div class="input-row">
+      <label for="clearTime">Fault Clearing Time (s):</label>
+      <input type="number" id="clearTime" name="clearTime" step="0.01" value="0.085" required>
+    </div>
+  </form>
 
-    <script>
-        document.getElementById('calcButton').addEventListener('click', function () {
+  <button id="calcButton">Calculate</button>
+  <p id="resultText"></p>
 
-            const E = parseFloat(document.getElementById('E').value);
-            const V = parseFloat(document.getElementById('V').value);
-            const Pmec = parseFloat(document.getElementById('Pmec').value);
+  <div id="faultSection" style="display: none;">
+    <h3>Fault Condition</h3>
+    <img src="images/Withfault.png" alt="Fault Condition Diagram">
+  </div>
 
-            const Xt = parseFloat(document.getElementById('Xt').value);
-            const X1 = parseFloat(document.getElementById('X1').value);
-            const X2 = parseFloat(document.getElementById('X2').value);
+  <canvas id="powerCurve"></canvas>
+  <canvas id="swingCurve"></canvas>
+  <canvas id="fCurve"></canvas>
+ <footer>&copy; 2025 Virtual Labs | IIT Roorkee</footer>
+</div>
 
-            const H = parseFloat(document.getElementById('H').value);
-            const f = parseFloat(document.getElementById('f').value);
-            const tStep = parseFloat(document.getElementById('tStep').value);
-            const faultTime = parseFloat(document.getElementById('faultTime').value);
-            const clearTime = parseFloat(document.getElementById('clearTime').value);
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-
-            const Xpre = Xt + ((X1*X2)/(X1+X2)); 
-            const Xpost = Xt + X1; 
-
-            const d = Array.from({ length: 51 }, (_, i) => i * Math.PI / 50); 
-
-            const P = d.map(delta => (E * V / Xpre) * Math.sin(delta)); 
-            const PeFault = d.map(() => 0); 
-            const Pme = d.map(() => Pmec); 
-            const PePost = d.map(delta => (E * V / Xpost) * Math.sin(delta));
-
-            const Ppremax = (E * V / Xpre);
-            const Pdurmax = 0;
-            const Ppostmax = (E * V / Xpost);
-
-            const swingCurve = Math.asin(Pmec/Ppremax) * (180/3.14);
-            console.log("criticalAngle:", swingCurve);
-
-
-           const Time = 5;              
-           const T = Math.floor(Time / tStep); 
-
-            let wr = new Array(T + 1).fill(0);  
-           let del = new Array(T + 1).fill(swingCurve); 
-           let tt = new Array(T + 1).fill(0);     
-           let Pmax = new Array(T + 1).fill(0);   
-           let wrd = new Array(T + 1).fill(2* Math.PI*f);  
-
-           const tf = Math.round((faultTime / Time) * T);  
-           const tc = Math.round(((faultTime + clearTime)/ Time) * T); 
-
-        for (let n = 0; n < T; n++) {
-            if (n < tf) {
-                Pmax[n] = Ppremax; 
-            } else if (n >= tf && n < tc) {
-                Pmax[n] = 0;  
-            } else {
-                Pmax[n] = Ppostmax; 
-            }
-
-            let k1d = ((Pmec/(2*H)) - (Pmax[n] / (2*H)) * Math.sin((del[n] * Math.PI) / 180)) * tStep;
-            let k1dd = (2*3.14159*f * wr[n]) * tStep;
-
-            let k2d = ((Pmec/(2*H))  - (Pmax[n] / (2*H)) * Math.sin(((del[n] * Math.PI) / 180) + k1dd)) * tStep;
-            let k2dd = (2*3.14159*f * (wr[n] + k1d)) * tStep;
-
-            tt[n + 1] = tt[n] + tStep;
-            wr[n + 1] = wr[n] + (k1d + k2d) / 2;
-            del[n + 1] = del[n] + ((180 / Math.PI) * (k1dd + k2dd)) / 2;
-            wrd[n + 1] = 2* Math.PI *f + 2* Math.PI *f * wr[n];
-        }
-
-            document.getElementById('faultSection').style.display = 'block';
-            
-
-            const ctx1 = document.getElementById('powerCurve').getContext('2d');
-            new Chart(ctx1, {
-                type: 'line',
-                data: {
-                    labels: d.map(delta => (delta * 180 / Math.PI).toFixed(1)),
-                    datasets: [
-                        { label: 'Pmechanical', data: Pme, borderColor: 'black', fill: false },
-                        { label: 'Pre-fault', data: P, borderColor: 'blue', fill: false },
-                        { label: 'During Fault', data: PeFault, borderColor: 'red', fill: false },
-                        { label: 'Post-fault', data: PePost, borderColor: 'green', fill: false }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        x: { title: { display: true, text: 'Load Angle (Degrees)' } },
-                        y: { title: { display: true, text: 'Power (pu)' } }
-                    }
-                }
-            });
-
-
-            const ctx2 = document.getElementById('swingCurve').getContext('2d');
-            new Chart(ctx2, {
-                type: 'line',
-                data: {
-                    labels: tt,
-                    datasets: [
-                        { label: 'Swing Curve', data: del, borderColor: 'purple', fill: false }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        x: { title: { display: true, text: 'Time (s)' } },
-                        y: { title: { display: true, text: 'Load Angle (Degrees)' } }
-                    }
-                }
-            });
-
-
-            const ctx3 = document.getElementById('fCurve').getContext('2d');
-            new Chart(ctx3, {
-                type: 'line',
-                data: {
-                    labels: tt,
-                    datasets: [
-                        { label: 'Frequency Curve', data: wrd, borderColor: 'blue', fill: false }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        x: { title: { display: true, text: 'Time (s)' } },
-                        y: { title: { display: true, text: 'Angular frequency (Hz)' } }
-                    }
-                }
-            });
-
-
-        });
-    </script>
-    
+<script src="script.js"></script>
 </body>
 </html>
