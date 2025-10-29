@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transient Stability Analysis</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="navbar">
+    <h1>Transient Stability Calculator</h1>
+    <div class="instructions">
+      <button id="openInstructions">Instructions</button>
+    </div>
+  </div>
+
+  <!-- Instructions Modal -->
+  <div id="instructionsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal"></span>
+      <div>
+        1. Enter the Generator Voltage (E), Bus Voltage (V), Mechanical Power (Pm), Transformer and Transmission line reactances (Xt, X1, X2), Inertia constant (H), System frequency (f), Time step (tStep), Fault occurrence time, and Fault clearing time.
+        <br><br>
+        2. Click on <b>"Calculate"</b> to perform transient stability analysis. The pre-fault, during fault, and post-fault power, swing curve, and frequency response will be plotted.
+        <br><br>
+        3. Fault condition diagram will also be displayed after calculation.
+      </div>
+    </div>
+  </div>
+
+  <img src="images/Withoutfault.png" alt="System Diagram (Pre-Fault)">
+
+  <form id="stabilityForm" class="section">
+    <div class="input-row">
+      <label for="E">Generator Voltage (E, pu):</label>
+      <input type="number" id="E" name="E" min="1" max="2" step="0.01" value="1.1626" required>
+    </div>
+    <div class="input-row">
+      <label for="V">Bus Voltage (V, pu):</label>
+      <input type="number" id="V" name="V" min="0.1" max="2" step="0.01" value="0.9" required>
+    </div>
+    <div class="input-row">
+      <label for="Pmec">Mechanical Power (Pm, pu):</label>
+      <input type="number" id="Pmec" name="Pmec" min="0.1" max="5" step="0.1" value="0.9" required>
+    </div>
+    <div class="input-row">
+      <label for="Xt">Transformer Line Reactance (Xt, pu):</label>
+      <input type="number" id="Xt" name="Xt" min="0.1" max="5" step="0.1" value="0.45" required>
+    </div>
+    <div class="input-row">
+      <label for="X1">Transmission Line 1 Reactance (X1, pu):</label>
+      <input type="number" id="X1" name="X1" min="0.1" max="5" step="0.1" value="0.5" required>
+    </div>
+    <div class="input-row">
+      <label for="X2">Transmission Line 2 Reactance (X2, pu):</label>
+      <input type="number" id="X2" name="X2" min="0.1" max="5" step="0.1" value="0.93" required>
+    </div>
+    <div class="input-row">
+      <label for="H">Inertia Constant (H):</label>
+      <input type="number" id="H" name="H" min="1" max="10" step="0.1" value="3.5" required>
+    </div>
+    <div class="input-row">
+      <label for="f">System Frequency (Hz):</label>
+      <input type="number" id="f" name="f" min="50" max="65" step="1" value="60" required>
+    </div>
+    <div class="input-row">
+      <label for="tStep">Time Step (s):</label>
+      <input type="number" id="tStep" name="tStep" step="0.01" value="0.0005" required>
+    </div>
+    <div class="input-row">
+      <label for="faultTime">Fault Occurrence Time (s):</label>
+      <input type="number" id="faultTime" name="faultTime" step="0.01" value="1" required>
+    </div>
+    <div class="input-row">
+      <label for="clearTime">Fault Clearing Time (s):</label>
+      <input type="number" id="clearTime" name="clearTime" step="0.01" value="0.085" required>
+    </div>
+  </form>
+
+  <button id="calcButton">Calculate</button>
+  <p id="resultText"></p>
+
+  <div id="faultSection" style="display: none;">
+    <h3>Fault Condition</h3>
+    <img src="images/Withfault.png" alt="Fault Condition Diagram">
+  </div>
+
+  <canvas id="powerCurve"></canvas>
+  <canvas id="swingCurve"></canvas>
+  <canvas id="fCurve"></canvas>
+ <footer>&copy; 2025 Virtual Labs | IIT Roorkee</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="script.js"></script>
+<script src="../assets/js/iframeResize.js"></script>
+        
+        </body>
+</html>
