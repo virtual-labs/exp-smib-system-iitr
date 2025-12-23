@@ -1,6 +1,6 @@
 <div style="font-family: 'Nunito Sans', sans-serif; font-size: 20px;text-align: justify;">
 
-## Procedure for the transient stability analysis of single machine infinite bus system:
+### Procedure for the transient stability analysis of single machine infinite bus system:
 <b>STEP 1</b>: Single line diagram of power system for Pre-Fault condition is displayed. Enter the values of Bus Voltage (V, pu), Mechanical Power (Pm, pu), Transformer Line Reactance (Xt, pu), Transmission Line 1 Reactance (X1, pu), Transmission Line 2 Reactance (X2, pu), Inertia Constant (H), System Frequency (Hz), Time Step (s), Fault Occurrence Time (s) and Fault Clearing Time (s).
 <br>
 <br>
