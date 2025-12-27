@@ -1,0 +1,1 @@
+#### The aim of this lab experiment is to perform the transient stability analysis of single machine infinite bus system.
