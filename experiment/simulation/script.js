@@ -218,36 +218,86 @@ document.getElementById('calcButton').addEventListener('click', function () {
     });
 
 
-    const ctx3 = document.getElementById('fCurve').getContext('2d');
+const ctx3 = document.getElementById('fCurve').getContext('2d');
+    // new Chart(ctx3, {
+    //     type: 'line',
+    //     data: {
+    //         labels: tt.map(t => t.toFixed(2)),
+    //         datasets: [
+    //             { label: 'Frequency Curve', data: wrd, borderColor: 'blue', fill: false }
+    //         ]
+    //     },
+    //     options: {
+    //         responsive: true,
+    //         scales: {
+    //             x: {
+    //                 title: { display: true, text: 'Time (s)' },
+    //                 ticks: {
+    //                     callback: function (value) {
+    //                         return parseFloat(value).toFixed(2);
+    //                     }
+    //                 }
+    //             },
+    //             y: {
+    //                 title: { display: true, text: 'Angular frequency (Hz)' },
+    //                 ticks: {
+    //                     callback: function (value) {
+    //                         return parseFloat(value).toFixed(2);
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // });
+
     new Chart(ctx3, {
-        type: 'line',
-        data: {
-            labels: tt.map(t => t.toFixed(2)),
-            datasets: [
-                { label: 'Frequency Curve', data: wrd, borderColor: 'blue', fill: false }
-            ]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                x: {
-                    title: { display: true, text: 'Time (s)' },
-                    ticks: {
-                        callback: function (value) {
-                            return parseFloat(value).toFixed(2);
-                        }
+    type: 'line',
+    data: {
+        datasets: [{
+            label: 'Frequency Curve',
+            data: tt.map((t, i) => ({ x: t, y: wrd[i] })),
+            borderColor: 'blue',
+            fill: false
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            x: {
+                type: 'linear',
+                min: 0,
+                max: 5,
+                title: { display: true, text: 'Time (s)' },
+
+                afterBuildTicks: function (scale) {
+                    const divisions = 33;
+                    const step = scale.max / divisions;
+                    scale.ticks = [];
+
+                    for (let i = 1; i <= divisions; i++) {
+                        scale.ticks.push({
+                            value: +(i * step).toFixed(3)
+                        });
                     }
                 },
-                y: {
-                    title: { display: true, text: 'Angular frequency (Hz)' },
-                    ticks: {
-                        callback: function (value) {
-                            return parseFloat(value).toFixed(2);
-                        }
+
+                ticks: {
+                    callback: function (value) {
+                        return value.toFixed(3);
+                    }
+                }
+            },
+            y: {
+                title: { display: true, text: 'Angular Frequency (Hz)' },
+                ticks: {
+                    callback: function (value) {
+                        return value;
                     }
                 }
             }
         }
-    });
+    }
+});
+
 
 });
