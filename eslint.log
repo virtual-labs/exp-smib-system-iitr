@@ -1,0 +1,9 @@
+
+/home/runner/work/exp-smib-system-iitr/exp-smib-system-iitr/experiment/simulation/script.js
+   37:11  warning  'Pdurmax' is assigned a value but never used  no-unused-vars
+  114:9   warning  'Chart' is not defined                        no-undef
+  174:9   warning  'Chart' is not defined                        no-undef
+  253:9   warning  'Chart' is not defined                        no-undef
+
+✖ 4 problems (0 errors, 4 warnings)
+
